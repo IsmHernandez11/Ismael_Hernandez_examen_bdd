@@ -4,6 +4,7 @@ CREATE TABLE vuelos (
     precio_boleto NUMERIC(10,2) NOT NULL CHECK (precio_boleto >= 0),
     asientos_disponibles INTEGER NOT NULL CHECK (asientos_disponibles >= 0)
 );
+
 INSERT INTO vuelos(codigo, precio_boleto, asientos_disponibles)
 VALUES ('AA-101', 250.50, 20);
 
@@ -63,3 +64,14 @@ VALUES ('ET-121', 420.20, 14);
 
 INSERT INTO vuelos(codigo, precio_boleto, asientos_disponibles)
 VALUES ('JP-131', 870.00, 2);
+
+SELECT *
+FROM vuelos
+WHERE asientos_disponibles < 5;
+
+UPDATE vuelos
+SET precio_boleto = precio_boleto * 1.15
+WHERE id = 1;
+
+DELETE FROM vuelos
+WHERE asientos_disponibles = 0;
